@@ -1,7 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-const hostname = "localhost";
+//const hostname = "localhost";
 const port = 3000;
 
 const server = http.createServer((req, res) => {
@@ -10,6 +10,7 @@ const server = http.createServer((req, res) => {
     var fileUrl;
     if (req.url == "/") fileUrl = "/index.html";
     else fileUrl = req.url;
+
     var filePath = path.resolve("./public" + fileUrl);
     const fileExt = path.extname(filePath);
     if (fileExt == ".html") {
@@ -48,6 +49,6 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+server.listen(port, () => {
+  console.log(`Server running at Port:${port}/`);
 });
